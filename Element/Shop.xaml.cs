@@ -12,7 +12,9 @@ namespace Element
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Shop : ContentPage
     {
-        Button btn, btn2 = new Button();
+        Button btn = new Button();
+        Button btn2 = new Button();
+
         Label lbl = new Label();
 
         int price = 10;
@@ -44,7 +46,7 @@ namespace Element
 
         private void Btn2_Clicked(object sender, EventArgs e)
         {
-            if (taps == price)
+            if (taps <= price)
             {
                 price += 10;
                 taps = taps - price;
