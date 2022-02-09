@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static Element.Shop;
 
 namespace Element
 {
@@ -13,7 +14,7 @@ namespace Element
     {
         Label lbl = new Label();
         Button btn = new Button();
-
+        public static int price = 10;
         public static int taps = default;
         public static int mult = default;
         public boxView()
@@ -58,9 +59,8 @@ namespace Element
 
         private void Tap_Tapped(object sender, EventArgs e)
         {
-            taps += 1;
-            int all = taps + mult;
-            lbl.Text = "Taps: " + all.ToString();
+            taps += 1+mult;
+            lbl.Text = "Taps: " + taps.ToString();
         }
     }
 }

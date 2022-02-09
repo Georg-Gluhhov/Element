@@ -17,7 +17,7 @@ namespace Element
 
         Label lbl = new Label();
 
-        int price = 10;
+
         public Shop()
         {
             //Back button
@@ -28,7 +28,7 @@ namespace Element
             btn.Clicked += Btn_Clicked;
 
             //Mult button
-            btn2.Text = "Buy mult";
+            btn2.Text = "Buy mult: " + price.ToString();
             btn2.FontSize = 50;
             btn2.BackgroundColor = Color.Black;
             btn2.TextColor = Color.White;
@@ -46,12 +46,13 @@ namespace Element
 
         private void Btn2_Clicked(object sender, EventArgs e)
         {
-            if (taps <= price)
+            if (taps >= price)
             {
-                price += 10;
                 taps = taps - price;
+                price = price*2;
                 mult += 1;
                 lbl.Text = "Taps: " + taps.ToString();
+                btn2.Text = "Buy mult: " + price.ToString();
             }
         }
 
