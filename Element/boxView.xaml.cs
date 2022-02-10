@@ -14,9 +14,15 @@ namespace Element
     {
         Label lbl = new Label();
         Button btn = new Button();
-        public static int price = 10;
-        public static int taps = default;
-        public static int mult = default;
+        public static BoxView box = new BoxView();
+        public static int price = 10;        
+        public static int price2x = 100;
+        public static int taps = 0;
+        public static int mult = 0;
+        public static int red = 0;
+        public static int green = 0;
+        public static int blue = 0; 
+        public static int x2 = 1;
         public boxView()
         {
 
@@ -33,19 +39,18 @@ namespace Element
             btn.TextColor = Color.White;
             btn.Clicked += Btn_Clicked;
 
-            BoxView box = new BoxView
-            {
-                Color = Color.Blue,
-                CornerRadius = 180,
-                WidthRequest = 300,
-                HeightRequest = 300,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.CenterAndExpand
-            };
+
+            box.Color = Color.FromRgb(red,green,blue);
+            box.CornerRadius = 180;
+            box.WidthRequest = 300;
+            box.HeightRequest = 300;
+            box.HorizontalOptions = LayoutOptions.Center;
+            box.VerticalOptions = LayoutOptions.CenterAndExpand;
 
             TapGestureRecognizer tap = new TapGestureRecognizer();
             tap.Tapped += Tap_Tapped;
             box.GestureRecognizers.Add(tap);
+
 
             StackLayout st = new StackLayout { Children = { lbl,btn, box }};
             Content = st;
@@ -59,8 +64,9 @@ namespace Element
 
         private void Tap_Tapped(object sender, EventArgs e)
         {
-            taps += 1+mult;
+            taps += 1+mult*2;
             lbl.Text = "Taps: " + taps.ToString();
+
         }
     }
 }
